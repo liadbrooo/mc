@@ -1,0 +1,20 @@
+name: ServerPerformance
+version: '${project.version}'
+main: com.performance.display.ServerPerformancePlugin
+api-version: '1.20'
+description: Ein Plugin zur Anzeige der Server-Performance mit schönem Design
+author: PerformanceDev
+
+commands:
+  performance:
+    description: Zeigt die Server-Performance an
+    aliases: [perf, fps]
+    usage: /<command> [start|stop|info]
+
+permissions:
+  performance.view:
+    description: Erlaubt das Anzeigen der Performance
+    default: true
+  performance.admin:
+    description: Administrativer Zugriff auf das Plugin
+    default: op
