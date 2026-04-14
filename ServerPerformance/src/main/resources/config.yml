@@ -1,0 +1,42 @@
+# ServerPerformance Plugin Konfiguration
+
+# Nachricht beim Join eines Spielers
+join-message: true
+
+# Automatisches Starten der Performance-Anzeige für neue Spieler
+auto-start: false
+
+# Update-Intervall in Ticks (20 Ticks = 1 Sekunde)
+update-interval: 20
+
+# Anzeige-Optionen
+display:
+  # Position der Anzeige (ACTION_BAR, CHAT, TITLE)
+  position: ACTION_BAR
+  
+  # Zeige folgende Informationen
+  show:
+    tps: true
+    memory: true
+    cpu: true
+    entities: true
+    chunks: true
+    players: true
+    tick-time: true
+
+# Farb-Einstellungen
+colors:
+  good: "#00AA00"      # Grün für gute Werte
+  warning: "#FFAA00"   # Orange für Warnwerte
+  danger: "#FF5555"    # Rot für kritische Werte
+  primary: "#00AAAA"   # Hauptfarbe
+  accent: "#FFAA00"    # Akzentfarbe
+
+# Schwellenwerte
+thresholds:
+  tps:
+    good: 19.5
+    warning: 18.0
+  tick-time:
+    good: 40
+    warning: 45
