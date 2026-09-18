@@ -1,45 +1,33 @@
 ```
-# Compiled and build artifacts
-*.class
-*.o
-*.obj
-*.out
+# Java/Maven build artifacts
 target/
-build/
+*.class
+*.jar
+*.war
+*.ear
 
 # Dependencies
-.gradle/
-libs/
 lib/
+libs/
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
-.vscode/
+# IDE specific
 .idea/
 *.iml
-*.iws
 *.ipr
+*.iws
+.vscode/
 
-# OS specific
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# Coverage
-coverage/
-htmlcov/
-.coverage
+# Logs
+*.log
 
-# Maven
-.mvn/
-!mvnw
-!mvnw.cmd
+# Temporary files
+*.tmp
+*.temp
+
+# Local configuration
+local.properties
 ```
