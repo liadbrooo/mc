@@ -1,0 +1,37 @@
+name: UltraOptimizer
+version: '1.0.0'
+main: com.ultraoptimizer.UltraOptimizerMain
+api-version: '1.20'
+description: Modern high-performance server optimizer with advanced features
+author: UltraOptimizer
+website: https://github.com/ultraoptimizer
+
+load: STARTUP
+
+softdepend:
+  - PlaceholderAPI
+  - Vault
+  - ProtocolLib
+
+commands:
+  ultraoptimizer:
+    description: Main command for UltraOptimizer
+    aliases: [uo, uoptimize]
+    usage: /<command> <subcommand>
+  uo:
+    description: Alias for ultraoptimizer
+    usage: /<command> <subcommand>
+
+permissions:
+  ultraoptimizer.admin:
+    description: Full access to all UltraOptimizer commands
+    default: op
+  ultraoptimizer.use:
+    description: Allows players to use basic optimization features
+    default: true
+  ultraoptimizer.bypass:
+    description: Bypasses certain optimizations
+    default: op
+  ultraoptimizer.notify:
+    description: Receive optimization notifications
+    default: op

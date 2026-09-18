@@ -1,0 +1,247 @@
+# ============================================
+#        UltraOptimizer Configuration
+# ============================================
+# Modern High-Performance Server Optimizer
+# Version: 1.0.0
+# ============================================
+
+# Enable or disable the entire plugin
+enabled: true
+
+# Debug mode - enables verbose logging
+debug: false
+
+# ============================================
+#           ENTITY OPTIMIZATION
+# ============================================
+entity-optimization:
+  enabled: true
+  
+  # Auto-remove entities when count exceeds threshold
+  auto-remove:
+    enabled: true
+    check-interval-ticks: 100  # Check every 5 seconds
+    thresholds:
+      mobs: 200
+      items: 100
+      arrows: 50
+      experience-orbs: 30
+      minecarts: 20
+      boats: 10
+    
+  # Remove entities in specific worlds
+  blacklisted-worlds:
+    - "world_nether"
+    - "world_the_end"
+  
+  # Don't remove named entities
+  protect-named-entities: true
+  
+  # Don't remove entities near players (radius in blocks)
+  protection-radius: 16
+
+# ============================================
+#           CHUNK OPTIMIZATION
+# ============================================
+chunk-optimization:
+  enabled: true
+  
+  # Unload unused chunks faster
+  aggressive-unload:
+    enabled: true
+    idle-timeout-seconds: 300
+  
+  # Pre-load chunks around spawn
+  spawn-preload:
+    enabled: true
+    radius: 3
+  
+  # Redstone optimization
+  redstone:
+    limit-concurrent-updates: true
+    max-updates-per-tick: 100
+
+# ============================================
+#           TILE ENTITY OPTIMIZATION
+# ============================================
+tile-entity-optimization:
+  enabled: true
+  
+  # Limit hopper checks
+  hopper:
+    reduce-checks-when-empty: true
+    max-checks-per-tick: 50
+  
+  # Optimize furnace processing
+  furnace:
+    batch-processing: true
+    max-simultaneous: 100
+  
+  # Optimize brewing stands
+  brewing-stand:
+    reduce-update-frequency: true
+
+# ============================================
+#           MOB AI OPTIMIZATION
+# ============================================
+mob-ai:
+  enabled: true
+  
+  # Reduce AI updates for distant mobs
+  distance-based-ai:
+    enabled: true
+    full-ai-radius: 32
+    reduced-ai-radius: 64
+    no-ai-beyond: 96
+  
+  # Disable AI for specific mob types when far away
+  reduced-ai-mobs:
+    - ZOMBIE
+    - SKELETON
+    - CREEPER
+    - SPIDER
+  
+  # Pathfinding optimization
+  pathfinding:
+    reduce-updates: true
+    max-pathfinds-per-tick: 10
+
+# ============================================
+#           REDSTONE OPTIMIZATION
+# ============================================
+redstone-optimization:
+  enabled: true
+  
+  # Limit redstone clock speed
+  clock-speed-limit:
+    enabled: true
+    max-ticks-per-second: 20
+  
+  # Prevent lag machines
+  anti-lag-machine:
+    enabled: true
+    detection-threshold: 1000  # Updates per second
+
+# ============================================
+#           NETWORK OPTIMIZATION
+# ============================================
+network:
+  enabled: true
+  
+  # Reduce packet spam
+  packet-throttling:
+    enabled: true
+    max-packets-per-second: 500
+  
+  # Optimize entity tracking
+  entity-tracking:
+    reduce-update-distance: true
+    tracking-distance: 48
+
+# ============================================
+#           MEMORY MANAGEMENT
+# ============================================
+memory-management:
+  enabled: true
+  
+  # Automatic garbage collection hints
+  gc-hints:
+    enabled: true
+    interval-minutes: 10
+  
+  # Cache management
+  cache:
+    max-size: 10000
+    expire-time-minutes: 30
+
+# ============================================
+#           AUTO RESTART SYSTEM
+# ============================================
+auto-restart:
+  enabled: false
+  
+  # Schedule restarts
+  scheduled-restarts:
+    - time: "04:00"
+      delay-warning-minutes: 10
+    - time: "16:00"
+      delay-warning-minutes: 10
+  
+  # Restart when RAM usage is too high
+  ram-threshold:
+    enabled: true
+    threshold-percent: 90
+    warning-threshold: 80
+
+# ============================================
+#           PERFORMANCE MONITORING
+# ============================================
+monitoring:
+  enabled: true
+  
+  # TPS monitoring
+  tps:
+    enabled: true
+    report-interval-ticks: 1200  # Report every minute
+    alert-threshold: 18.0
+  
+  # Memory monitoring
+  memory:
+    enabled: true
+    report-interval-ticks: 1200
+    alert-threshold-percent: 85
+  
+  # Entity count monitoring
+  entities:
+    enabled: true
+    report-interval-ticks: 1200
+    alert-threshold: 500
+
+# ============================================
+#           NOTIFICATIONS
+# ============================================
+notifications:
+  # Send notifications to console
+  console: true
+  
+  # Send notifications to online admins
+  admin-chat: true
+  
+  # Use action bar for critical alerts
+  action-bar-alerts: true
+  
+  # Sound notifications for critical issues
+  sound-alerts:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_PLING
+    pitch: 1.0
+    volume: 0.5
+
+# ============================================
+#           ADVANCED SETTINGS
+# ============================================
+advanced:
+  # Async operations for heavy tasks
+  async-tasks: true
+  
+  # Database for statistics (SQLite by default)
+  database:
+    enabled: true
+    type: "sqlite"  # sqlite, mysql
+    mysql:
+      host: "localhost"
+      port: 3306
+      database: "ultraoptimizer"
+      username: "root"
+      password: ""
+  
+  # Metrics (bStats)
+  metrics:
+    enabled: true
+    server-id: 0  # Replace with your bStats ID
+  
+  # API integration
+  api:
+    enable-rest-api: false
+    port: 8080
+    authentication: true
